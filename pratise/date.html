@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>date</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="angular-1.3.0.js"></script>
+</head>
+<body>
+       <div ng-controller="TestCtrl">
+	       {{ a | date: 'yyyy-MM-dd HH:mm:ss'}} <br />
+	   </div>
+
+<script>
+     var TestCtrl = function($scope){
+	            $scope.a = ((new Date().valueOf()));//当前时间点的时间戳
+	 }
+     angular.bootstrap(document.documentElement);//手动加载模块
+</script>
+</body>
+</html>

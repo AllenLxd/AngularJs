@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>搜索</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="angular-1.3.0.js"></script>
+</head>
+
+
+<body>
+     <div ng-controller="TestCtrl" ng-init="s=data[0].name; q=''">
+	    <div>
+		      <span>查找：</span><input type="text" ng-model="q"/>
+			  <select ng-multiple="true" ng-model="s"
+			          ng-options="o.name as o.name + '(' + o.age + ')' for o in data 
+                  			      | filter: {name: q} | orderBy: ['age', 'name'] ">
+			       
+			  </select>
+		</div>
+	 </div>
+
+<script>
+     //输入框控制select的可选内容
+     var TestCtrl = function($scope){
+	        $scope.data = [
+			    {name: 'B', age:4},
+				{name: 'A', age:1},
+				{name: 'D', age:3},
+				{name: 'C', age:3},
+			];
+	 }
+     angular.bootstrap(document.documentElement);//手动加载模块
+</script>
+</body>
+</html>

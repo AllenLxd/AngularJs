@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>orderBy</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="angular-1.3.0.js"></script>
+</head>
+<body>
+       <div ng-controller="TestCtrl">
+	       {{data | orderBy: 'age'}} <br />
+		   {{data | orderBy: '-age'}} <br />
+		   {{data | orderBy: '-age' | limitTo: 2}} <br />
+		   {{data | orderBy: ['-age', 'name']}} <br />
+	   </div>
+
+<script>
+     var TestCtrl = function($scope){
+	            $scope.data = [
+				         {name:'B', age:4},
+						 {name:'A', age:1},
+						 {name:'D', age:3},
+						 {name:'C', age:3}
+				];
+	 }
+     angular.bootstrap(document.documentElement);//手动加载模块
+</script>
+</body>
+</html>
